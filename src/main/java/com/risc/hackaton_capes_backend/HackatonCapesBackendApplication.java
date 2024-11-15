@@ -1,13 +1,13 @@
-package com.americo.hackaton_capes_back;
+package com.risc.hackaton_capes_backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HackatonCapesBackApplication {
+public class HackatonCapesBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HackatonCapesBackApplication.class, args);
+		SpringApplication.run(HackatonCapesBackendApplication.class, args);
 	}
 
 }

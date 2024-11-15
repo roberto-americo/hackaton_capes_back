@@ -1,10 +1,10 @@
-package com.americo.hackaton_capes_back;
+package com.risc.hackaton_capes_backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HackatonCapesBackApplicationTests {
+class HackatonCapesBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
