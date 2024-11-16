@@ -28,8 +28,5 @@ public class Source implements Serializable {
 	
 	@Column
 	@Nonnull
-	private String title;
-	
-	@Column
-	private String language;
+	private String name;
 }

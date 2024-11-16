@@ -26,7 +26,7 @@ public class Article implements Serializable {
 	@Column(name = "id", nullable = false)
     private Integer id;
 	
-	@Column
+	@Column(columnDefinition = "TEXT")
 	@Nonnull
 	private String title;
 	
@@ -37,5 +37,9 @@ public class Article implements Serializable {
 	@Column
 	@Nonnull
 	private String language;
+
+	@Column(name = "abstract_article", columnDefinition = "LONGTEXT")
+	@Nonnull
+	private String abstractArticle;
 
 }

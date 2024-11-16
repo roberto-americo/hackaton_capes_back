@@ -2,13 +2,8 @@ package com.risc.hackaton_capes_backend.model.id;
 
 import java.io.Serializable;
 
-import com.risc.hackaton_capes_backend.model.Article;
-import com.risc.hackaton_capes_backend.model.Keyword;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,17 +15,17 @@ public class ArticleKeywordId implements Serializable {
 
 	private static final long serialVersionUID = -1383180013540120407L;
 	
-	@OneToOne
-    @JoinColumn(name = "article_id", referencedColumnName = "id")
-	private Article article;
+    @Column(name = "article_id")
+	private Integer articleId;
 	
-	@ManyToOne
-    @JoinColumn(name = "keyword_id", referencedColumnName = "id")
-	private Keyword keyword;
+    @Column(name = "keyword_id")
+	private Integer keywordId;
 
-	public ArticleKeywordId(Article article, Keyword keyword) {
+	public ArticleKeywordId() {}
+
+	public ArticleKeywordId(Integer articleId, Integer keywordId) {
 		super();
-		this.article = article;
-		this.keyword = keyword;
-	}
+		this.articleId = articleId;
+		this.keywordId = keywordId;
+	}	
 }

@@ -14,7 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Keyword")
+@Table(name = "keyword")
 @Getter
 @Setter
 @ToString
@@ -26,7 +26,7 @@ public class Keyword implements Serializable {
 	@Column(name = "id", nullable = false)
     private Integer id;
 	
-	@Column
+	@Column(columnDefinition = "TEXT")
 	@Nonnull
 	private String name;
 }

@@ -5,11 +5,9 @@ import java.io.Serializable;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,8 +29,4 @@ public class Author implements Serializable {
 	@Column
 	@Nonnull
 	private String name;
-	
-	@OneToOne(fetch = FetchType.EAGER)
-	private Institution institution;
-
 }
