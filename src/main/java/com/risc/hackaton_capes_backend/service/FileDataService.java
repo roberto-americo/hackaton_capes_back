@@ -115,12 +115,14 @@ public class FileDataService {
 		articles.size();
 	}
 
-	private void getKeywords(String[] line, Set<KeywordDTO> keywords) {
+	private Set<KeywordDTO> getKeywords(String[] line, Set<KeywordDTO> keywords) {
 		String[] keywordsSplitted = line[KEYWORDS.getIndex()].split("\\;");
 		
 		for (String keywordSplitted: keywordsSplitted) {
 			keywords.add(KeywordDTO.builder().name(keywordSplitted).build());
 		}
+		
+		return keywords;
 	}
 	
 	private List<String[]> loadCsv() throws Exception {

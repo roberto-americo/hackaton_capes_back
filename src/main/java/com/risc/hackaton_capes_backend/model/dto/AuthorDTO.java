@@ -35,6 +35,10 @@ public class AuthorDTO {
 			return false;
 		
 		AuthorDTO other = (AuthorDTO) obj;
+
+		if (id == null && other.id == null) {
+			return name.equals(other.name);
+		}
 		
 		return Objects.equals(id, other.id);
 	}

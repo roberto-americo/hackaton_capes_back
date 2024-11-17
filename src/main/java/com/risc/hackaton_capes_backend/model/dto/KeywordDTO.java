@@ -33,6 +33,11 @@ public class KeywordDTO {
 			return false;
 		
 		KeywordDTO other = (KeywordDTO) obj;
+		
+		if (id == null && other.id == null) {
+			return name.equals(other.name);
+		}
+		
 		return Objects.equals(id, other.id);
 	}	
 }

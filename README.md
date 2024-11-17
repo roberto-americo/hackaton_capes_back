@@ -11,7 +11,7 @@ Necessário:
 
 Para executar o projeto:
     mvn clean install
-    mvn spring-boot:run4
+    mvn spring-boot:run
     
 Base de dados H2 em tempo de execução com arquivo, o arquivo encontra-se na pasta ./data
 
