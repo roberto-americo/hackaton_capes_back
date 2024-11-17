@@ -121,22 +121,6 @@ public class FileDataService {
 		for (String keywordSplitted: keywordsSplitted) {
 			keywords.add(KeywordDTO.builder().name(keywordSplitted).build());
 		}
-		
-		if (!isNOTValidField( line[KEYWORDS_PT.getIndex()]) && !isNOTValidKeyword(KEYWORDS_PT,  line[KEYWORDS_PT.getIndex()]) ) {
-			keywordsSplitted = line[KEYWORDS_PT.getIndex()].split("\\;");
-			
-			for (String keywordSplitted: keywordsSplitted) {
-				keywords.add(KeywordDTO.builder().name(keywordSplitted).build());
-			}
-		}
-		
-		if (!isNOTValidField( line[KEYWORDS_ES.getIndex()]) && !isNOTValidKeyword(KEYWORDS_ES,  line[KEYWORDS_ES.getIndex()]) ) {
-			keywordsSplitted = line[KEYWORDS_ES.getIndex()].split("\\;");
-			
-			for (String keywordSplitted: keywordsSplitted) {
-				keywords.add(KeywordDTO.builder().name(keywordSplitted).build());
-			}
-		}
 	}
 	
 	private List<String[]> loadCsv() throws Exception {
@@ -189,6 +173,7 @@ public class FileDataService {
 		if (str.contains("email:")) {
 			System.out.println("");
 		}
+
 		if (csvEnum.equals(KEYWORDS) || csvEnum.equals(KEYWORDS_PT) || csvEnum.equals(KEYWORDS_ES)) {
 			if (!str.contains(";")) {
 				return true;

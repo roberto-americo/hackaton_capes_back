@@ -1,6 +1,8 @@
-package com.risc.hackaton_capes_backend.model.dto;
+package com.risc.hackaton_capes_backend.model.dto.globalview;
 
 import java.util.Objects;
+
+import com.risc.hackaton_capes_backend.model.dto.KeywordDTO;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -11,15 +13,15 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class AuthorPerKeyword {
+public class KeywordsPerYear {
 	
-	private AuthorDTO author;
+	private String year;
 	
 	private KeywordDTO keyword;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(keyword, author);
+		return Objects.hash(keyword, year);
 	}
 
 	@Override
@@ -33,8 +35,8 @@ public class AuthorPerKeyword {
 		if (getClass() != obj.getClass())
 			return false;
 		
-		AuthorPerKeyword other = (AuthorPerKeyword) obj;
-		return Objects.equals(keyword, other.keyword) && Objects.equals(author, other.author);
+		KeywordsPerYear other = (KeywordsPerYear) obj;
+		return Objects.equals(keyword, other.keyword) && Objects.equals(year, other.year);
 	}
 	
 	

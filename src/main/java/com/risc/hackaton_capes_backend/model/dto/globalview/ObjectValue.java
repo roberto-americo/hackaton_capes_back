@@ -1,4 +1,4 @@
-package com.risc.hackaton_capes_backend.model.dto;
+package com.risc.hackaton_capes_backend.model.dto.globalview;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,12 +9,12 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class ObjectPerArticle<T> {
+public class ObjectValue<T> {
 	
 	private T object;
 	private Integer value;
 	
-	public ObjectPerArticle(T object, Integer value) {
+	public ObjectValue(T object, Integer value) {
 		this.object = object;
 		this.value = value;
 	}
