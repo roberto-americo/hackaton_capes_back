@@ -11,28 +11,31 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-public class KeywordDTO {
+public class AuthorPerKeyword {
 	
-	private Integer id;
-	private String name;
+	private AuthorDTO author;
+	
+	private KeywordDTO keyword;
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(keyword, author);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
+			
 			return true;
-		
 		if (obj == null)
 			return false;
 		
 		if (getClass() != obj.getClass())
 			return false;
 		
-		KeywordDTO other = (KeywordDTO) obj;
-		return Objects.equals(id, other.id);
-	}	
+		AuthorPerKeyword other = (AuthorPerKeyword) obj;
+		return Objects.equals(keyword, other.keyword) && Objects.equals(author, other.author);
+	}
+	
+	
 }
