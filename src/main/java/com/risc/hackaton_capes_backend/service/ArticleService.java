@@ -1,5 +1,8 @@
 package com.risc.hackaton_capes_backend.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +66,25 @@ public class ArticleService {
 		}
 		
 		return article;		
+	}
+	
+	public List<ArticleDTO> search(String search) {
+		search = Utils.transformLower(search);
+		
+		List<Article> articles = repository.findByKeyword(search);
+		
+		return getDTOfromDB(articles);
+	}
+
+	private List<ArticleDTO> getDTOfromDB(List<Article> articles) {
+		List<ArticleDTO> dtos = new ArrayList<ArticleDTO>();
+		
+		dtos = ArticleMapper.toDto(articles);
+		
+		sourceService.get(dtos);
+		keywordService.get(dtos);
+		authorService.get(dtos);
+		return dtos;
 	}
 	
 	private void cleanData(ArticleDTO dto) {

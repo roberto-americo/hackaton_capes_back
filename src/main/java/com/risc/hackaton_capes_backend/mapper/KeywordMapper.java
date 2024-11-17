@@ -1,5 +1,8 @@
 package com.risc.hackaton_capes_backend.mapper;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.risc.hackaton_capes_backend.model.Keyword;
 import com.risc.hackaton_capes_backend.model.dto.KeywordDTO;
 
@@ -20,5 +23,15 @@ public class KeywordMapper {
 				.name(keyword.getName())
 				.id(keyword.getId())
 				.build();
+	}
+	
+	public static Set<KeywordDTO> toDto(Set<Keyword> keywords) {
+		Set<KeywordDTO> keywordsDTO = new HashSet<>();
+		
+		for (Keyword keyword: keywords) {
+			keywordsDTO.add(toDto(keyword));
+		}
+		
+		return keywordsDTO;
 	}
 }

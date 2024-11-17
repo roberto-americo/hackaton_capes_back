@@ -1,6 +1,7 @@
 package com.risc.hackaton_capes_backend.repository;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,4 +18,9 @@ public interface KeywordRepository extends JpaRepository<Keyword, Integer> {
 			"WHERE LOWER(k.name) = LOWER(:name)",
 			  nativeQuery = true)
 	public Optional<Keyword> getByName(@Param("name") String name);
+	
+	@Query(value = "SELECT DISTINCT(k) FROM Keyword AS k "
+			+ "INNER JOIN ArticleKeyword AS ak ON ak.articleKeywordId.keywordId = k.id "
+			+ "WHERE ak.articleKeywordId.articleId = :articleId")
+	public Set<Keyword> getByArticleId(@Param("articleId") Integer id);
 }

@@ -17,5 +17,10 @@ public interface SourceRepository extends JpaRepository<Source, Integer> {
 			"WHERE LOWER(s.name) = LOWER(:name)",
 			  nativeQuery = true)
 	public Optional<Source> getByName(@Param("name") String name);
+	
+	@Query(value = "SELECT DISTINCT(s) FROM Source AS s "
+			+ "INNER JOIN ArticleSource AS as ON as.articleSourceId.sourceId = s.id "
+			+ "WHERE as.articleSourceId.articleId = :articleId")
+	public Optional<Source> getByArticleId(@Param("articleId") Integer id);
 
 }

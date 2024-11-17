@@ -17,5 +17,10 @@ public interface InstitutionRepository extends JpaRepository<Institution, Intege
 			"WHERE LOWER(i.name) = LOWER(:name)",
 			  nativeQuery = true)
 	public Optional<Institution> getByName(@Param("name") String name);
+	
+	@Query(value = "SELECT DISTINCT(i) FROM Institution AS i "
+			+ "INNER JOIN AuthorInstitution AS ai ON ai.authorInstitutionId.institutionId = i.id "
+			+ "WHERE ai.authorInstitutionId.authorId = :authorId")
+	public Optional<Institution> getByAuthorId(@Param("authorId") Integer id);
 
 }

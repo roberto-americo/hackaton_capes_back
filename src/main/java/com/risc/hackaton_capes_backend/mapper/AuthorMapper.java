@@ -1,5 +1,8 @@
 package com.risc.hackaton_capes_backend.mapper;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.risc.hackaton_capes_backend.model.Author;
 import com.risc.hackaton_capes_backend.model.dto.AuthorDTO;
 
@@ -20,5 +23,15 @@ public class AuthorMapper {
 				.name(author.getName())
 				.id(author.getId())
 				.build();
+	}
+	
+	public static Set<AuthorDTO> toDto(Set<Author> authors) {
+		Set<AuthorDTO> authorDTOs = new HashSet<>();
+		
+		for (Author author: authors) {
+			authorDTOs.add(toDto(author));
+		}
+		
+		return authorDTOs;
 	}
 }

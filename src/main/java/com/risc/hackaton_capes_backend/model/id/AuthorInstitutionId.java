@@ -14,17 +14,17 @@ public class AuthorInstitutionId implements Serializable {
 	private static final long serialVersionUID = 6562864145070522207L;
 
 	@Column(name = "author_id")
-	private Integer author;
+	private Integer authorId;
 
 	@Column(name = "institution_id")
-	private Integer institution;
+	private Integer institutionId;
 
 	public AuthorInstitutionId() {
 	}
 
 	public AuthorInstitutionId(Integer author, Integer institution) {
 		super();
-		this.author = author;
-		this.institution = institution;
+		this.authorId = author;
+		this.institutionId = institution;
 	};
 }

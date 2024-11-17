@@ -1,5 +1,8 @@
 package com.risc.hackaton_capes_backend.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.risc.hackaton_capes_backend.model.Article;
 import com.risc.hackaton_capes_backend.model.dto.ArticleDTO;
 
@@ -26,5 +29,15 @@ public class ArticleMapper {
 				.id(article.getId())
 				.abstractArticle(article.getAbstractArticle())
 				.build();
+	}
+	
+	public static List<ArticleDTO> toDto(List<Article> articles) {
+		List<ArticleDTO> dtos = new ArrayList<ArticleDTO>();
+		
+		for (Article article: articles) {
+			dtos.add(toDto(article));
+		}
+		
+		return dtos;
 	}
 }

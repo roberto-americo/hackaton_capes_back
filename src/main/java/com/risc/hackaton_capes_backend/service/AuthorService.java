@@ -1,6 +1,8 @@
 package com.risc.hackaton_capes_backend.service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.risc.hackaton_capes_backend.mapper.AuthorMapper;
 import com.risc.hackaton_capes_backend.model.Author;
 import com.risc.hackaton_capes_backend.model.Institution;
+import com.risc.hackaton_capes_backend.model.dto.ArticleDTO;
 import com.risc.hackaton_capes_backend.model.dto.AuthorDTO;
 import com.risc.hackaton_capes_backend.repository.AuthorRepository;
 
@@ -42,6 +45,22 @@ public class AuthorService {
 		authorInstitutionService.save(author, institution);
 		
 		return author;		
+	}
+	
+	public Set<Author> getByArticleId(Integer articleId) {
+		return repository.getByArticleId(articleId);
+	}
+	
+	public void get(List<ArticleDTO> articles) {
+		for (ArticleDTO article: articles) {
+			Set<Author> authors = getByArticleId(article.getId());
+			
+			Set<AuthorDTO> dtos = AuthorMapper.toDto(authors);
+			
+			institutionService.get(dtos);
+			
+			article.setAuthors(dtos);
+		}
 	}
 	
 	private void cleanData(AuthorDTO dto) {

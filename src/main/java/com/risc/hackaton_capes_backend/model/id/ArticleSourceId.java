@@ -14,17 +14,17 @@ public class ArticleSourceId implements Serializable {
 	private static final long serialVersionUID = 8264088198904922144L;
 
 	@Column(name = "article_id")
-	private Integer article;
+	private Integer articleId;
 
 	@Column(name = "source_id")
-	private Integer source;
+	private Integer sourceId;
 
 	public ArticleSourceId() {
 	}
 
 	public ArticleSourceId(Integer article, Integer source) {
 		super();
-		this.article = article;
-		this.source = source;
+		this.articleId = article;
+		this.sourceId = source;
 	};
 }

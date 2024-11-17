@@ -186,12 +186,27 @@ public class FileDataService {
 	}
 	
 	private boolean isNOTValidKeyword(CSVEnum csvEnum, String str) {
-		if (csvEnum.equals(KEYWORDS)) {
-			if (!str.contains("\\;")) {
+		if (str.contains("email:")) {
+			System.out.println("");
+		}
+		if (csvEnum.equals(KEYWORDS) || csvEnum.equals(KEYWORDS_PT) || csvEnum.equals(KEYWORDS_ES)) {
+			if (!str.contains(";")) {
 				return true;
 			}
 			
-			if (str.contains("\\[") && str.contains("Links") && str.contains("\\]")) {
+			if (str.contains("[") && str.contains("Links") && str.contains("]")) {
+				return true;
+			}
+			
+			if (str.contains("[") && str.contains("LINKS") && str.contains("]")) {
+				return true;
+			}
+			
+			if (str.contains(",") && (str.contains("(") || str.contains(")"))) {
+				return true;
+			}
+			
+			if (str.contains("@")) {
 				return true;
 			}
 		}
